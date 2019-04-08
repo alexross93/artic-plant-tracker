@@ -1,0 +1,83 @@
+﻿@model IEnumerable<PlantTracker.Models.PlantModel>
+@{
+   
+    List<SelectListItem> listItems = ViewData["listItems"] as List<SelectListItem>;
+    List<SelectListItem> listOrder = ViewData["listOrder"] as List<SelectListItem>;
+
+ }
+
+        <center><h3>Alexander Ross (040873561)</h3></center>
+        <center><h1>@ViewData["Message"]</h1></center>
+
+        <h4 class="tableUpdated font-size: large;">
+
+
+
+         @using (Html.BeginForm("Index", "Home",
+         FormMethod.Post,
+         new { enctype = "multipart/form-data" }))
+            {
+                <label>Sort list by</label>
+                @Html.DropDownList("dropDownList", listItems, new { style = "width: 160px; font-size: 14px;" })
+                <label> in </label>
+                @Html.DropDownList("dropDownList", listOrder, new { style = "width: 100px; font-size: 14px;" })
+
+                <label>order </label>
+                <input type="image" src="~/images/go.png" alt="Submit" width="32" height="32" style="position: relative; top: 9px;" />
+
+            }
+
+        </h4>
+
+        <table class="table table-bordered table-responsive table-hover table-striped tableUpdated">
+            <tr>
+                <th>Id </th>
+                <th>Species </th>
+                <th>Year </th>
+                <th>Julian day of the year </th>
+                <th>Plant Id</th>
+                <th>Num buds </th>
+                <th>Num flowers </th>
+                <th>Num flowers to reach maturity</th>
+                <th>Observer Initials</th>
+                <th>Observer Comments</th>
+                <th>Actions</th>
+
+            </tr>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.Id</td>
+                    <td>@d.Species</td>
+                    <td>@d.Year</td>
+                    <td>@d.JulianDayOfTheYear</td>
+                    <td>@d.PlantId</td>
+                    <td>@d.NumBuds</td>
+                    <td>@d.NumFlowers</td>
+                    <td>@d.NumFlowersToReachMaturity</td>
+                    <td>@d.ObserverInitials</td>
+                    <td>@d.ObserverComments</td>
+                    <td>
+                        <a href='@Url.Action("Edit", "Home", new { id = @d.Id })'>
+                            <img src='@Url.Content("~/images/edit.png")' width="20" height="20" />
+                        </a>
+                        <a href='@Url.Action("Delete", "Home", new { id = @d.Id })'>
+                            <img src='@Url.Content("~/images/delete.png")' width="20" height="20" />
+                        </a>
+                    </td>
+
+                </tr>
+            }
+
+
+        </table>
+        <div class="tableUpdated">
+            <a href='@Url.Action("Add", "Home", new { id = 1})'>
+                <img src='@Url.Content("~/images/addPlant.png")' width="50" height="50" />
+            </a>
+
+            <a href='@Url.Action("Reload", "Home", new { id = 1})'>
+                <img src='@Url.Content("~/images/refreshPage.png")' width="50" height="50" />
+            </a>
+        </div>
+

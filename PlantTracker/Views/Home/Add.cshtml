@@ -1,0 +1,47 @@
+﻿@model PlantTracker.Models.PlantModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h3>Alexander Ross (040873561)</h3>
+<br />
+<h3>@ViewData["Message"]</h3>
+
+@using (Html.BeginForm())
+{
+    <label>Species</label>
+    @Html.TextBox("Species", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>Year</label>
+    @Html.TextBox("Year", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>JulianDayOfTheYear</label>
+    @Html.TextBox("JulianDayOfTheYear", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>PlantId</label>
+    @Html.TextBox("PlantId", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>NumBuds</label>
+    @Html.TextBox("NumBuds", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>NumFlowers</label>
+    @Html.TextBox("NumFlowers", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>NumFlowersToReachMaturity</label>
+    @Html.TextBox("NumFlowersToReachMaturity", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>ObserverInitials</label>
+    @Html.TextBox("ObserverInitials", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <label>ObserverComments</label>
+    @Html.TextBox("ObserverComments", null, new { @class = "form-control", style = "width: 200px;" })
+    <br />
+    <div class="panel-danger">
+        <input type="submit" value="Add" class="btn btn-default" />
+        <a onclick="history.go(-1); return false;" href="#" class="btn btn-default">Back</a><br />
+    </div>
+}
+
+
+
+

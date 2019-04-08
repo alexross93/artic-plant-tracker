@@ -1,0 +1,20 @@
+﻿@model PlantTracker.Models.PlantModel
+@{
+    ViewData["Title"] = "Reload";
+}
+
+<h3>Alexander Ross (040873561)</h3>
+<br />
+<h3>@ViewData["Message"]</h3>
+
+@using (Html.BeginForm())
+{
+<div class="panel-danger">
+    <input type="submit" value="Confirm" class="btn btn-default" />
+    <a onclick="history.go(-1); return false;" href="#" class="btn btn-default">Back</a><br />
+</div>
+}
+
+
+
+
